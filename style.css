@@ -30,7 +30,9 @@ h2{
     font-family: 'Google-Sans-Flex';
     font-weight: 400;
     font-size: 1.7em;
-    color: rgba(0, 0, 0, 0.80);}
+    color: rgba(0, 0, 0, 0.80);
+    margin-bottom: 2em;
+}
 
 ul{
     list-style: none;
@@ -52,16 +54,39 @@ li:nth-child(1){
 
 }
 li:nth-child(2){
-    background-color: #FE814B;;
+    background-color: #FE814B;
 }
 li:nth-child(3){
-    background-color: #24D0FE;;
+    background-color: #24D0FE;
 }
 li:nth-child(4){
-    background-color: #01916E;;
+    background-color: #01916E;
 
 }
 li:nth-child(5){
-    background-color: #E3B23C;;
+    background-color: #E3B23C;
 
+}
+
+.tarefa{
+    background-color: transparent;
+    
+}
+
+::placeholder{
+    font-family: 'Google-Sans-Flex';
+    font-size: 1.25em;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.60);
+
+}
+
+
+.campo-tarefa{
+    background-color: transparent;
+    border: none;
+}
+
+input:hover{
+    border: none;
 }
