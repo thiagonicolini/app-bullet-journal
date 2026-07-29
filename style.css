@@ -70,7 +70,9 @@ li:nth-child(5){
 
 .tarefa{
     background-color: transparent;
-    
+    display:flex;
+    align-items: center;
+
 }
 
 ::placeholder{
@@ -85,8 +87,31 @@ li:nth-child(5){
 .campo-tarefa{
     background-color: transparent;
     border: none;
+    color: rgba(0, 0, 0, 0.80);
+    font-family: 'Google-Sans-Flex';
 }
 
-input:hover{
-    border: none;
+input:focus{
+    outline: none;
+}
+
+
+input[type="checkbox"]{
+    appearance: none;
+    width: 1.5em;
+    height: 1.5em;
+    border: solid 2px rgba(0, 0, 0, 0.60);
+    border-radius: 0.5em;
+}
+
+input[type="checkbox"]:checked{
+    background-color: #000;
+    mask-image: url('/svg/check-1.svg');
+    -webkit-mask-image: url('/svg/check-1.svg');
+    mask-repeat: no-repeat;
+    mask-position: center center;
+    mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center center;
+    -webkit-mask-size: contain;
 }
