@@ -31,7 +31,7 @@ h2{
     font-weight: 400;
     font-size: 1.7em;
     color: rgba(0, 0, 0, 0.80);
-    margin-bottom: 2em;
+    padding-bottom: -2em;
 }
 
 ul{
@@ -39,31 +39,31 @@ ul{
     padding-left: 0px;
 }
 
-li{
+li.dia{
     margin-top: -2em;
     padding: 0.325em 1.5em;
     border-radius: 1.125em;
 }
 
-li:first-child{
+li.dia:first-child{
     margin-top: 0;
 }
 
-li:nth-child(1){
+li.dia:nth-child(1){
     background-color: #B88EFE;
 
 }
-li:nth-child(2){
+li.dia:nth-child(2){
     background-color: #FE814B;
 }
-li:nth-child(3){
+li.dia:nth-child(3){
     background-color: #24D0FE;
 }
-li:nth-child(4){
+li.dia:nth-child(4){
     background-color: #01916E;
 
 }
-li:nth-child(5){
+li.dia:nth-child(5){
     background-color: #E3B23C;
 
 }
@@ -87,7 +87,7 @@ li:nth-child(5){
 .campo-tarefa{
     background-color: transparent;
     border: none;
-    color: rgba(0, 0, 0, 0.80);
+    color: rgba(0, 0, 0, 0.60);
     font-family: 'Google-Sans-Flex';
 }
 
@@ -110,9 +110,8 @@ input[type="checkbox"]:checked::before{
     display: block;
     width: 100%;
     height: 100%;
-    background-color: #000;
+    background-color: rgba(0, 0, 0, 0.60);
     mask-image: url('svg/check-1.svg'), linear-gradient(#fff, #fff);
-    
     -webkit-mask-image: url('svg/check-1.svg') url('svg/check-1.svg'), linear-gradient(#fff, #fff);
     mask-repeat: no-repeat;
     mask-position: center center;
@@ -120,13 +119,34 @@ input[type="checkbox"]:checked::before{
     -webkit-mask-repeat: no-repeat;
     -webkit-mask-position: center center;
     -webkit-mask-size: contain;
-
     mask-composite: exclude;
     -webkit-mask-composite: xor;
 
 
 }
 
-input[type="checkbox"]:checked {
-    outline: 5px solid red;
+input[type="date"]{
+    font-family: 'Google-Sans-Flex';
+    font-size: 1em;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.60);
+    background-color: transparent;
+    border: none;
+    border-bottom: solid 1px  rgba(0, 0, 0, 0.60);
+    transform: translateY(-1em);
+}
+
+button{
+    background-color: #000;
+    color: #fff !important;
+    padding: 0.8em 1.05em;
+    border-radius: 100%;
+    font-size: 1.5em;
+    position: absolute;
+    right: 20px;
+}
+
+button:hover{
+    transform: scale(1.3);
+    transition: ease-in 0.550s;
 }
