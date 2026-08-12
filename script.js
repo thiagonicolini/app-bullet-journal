@@ -8,3 +8,9 @@ document.addEventListener('keydown', (event) =>{
                 novoItem.querySelector('.campo-tarefa').focus();
             }
         })
+
+document.addEventListener('change', (event) =>{
+        if (event.target.type === 'checkbox'){
+            console.log('Checkbox tá clicado');
+        }
+});
