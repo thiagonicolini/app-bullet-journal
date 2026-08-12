@@ -5,5 +5,6 @@ document.addEventListener('keydown', (event) =>{
                 const listaDoDia = event.target.closest('ul');
                 novoItem.innerHTML = '<input type="checkbox"><input type="text" class="campo-tarefa" placeholder="Digite sua tarefa aqui...">';
                 listaDoDia.appendChild(novoItem);
+                novoItem.querySelector('.campo-tarefa').focus();
             }
         })
