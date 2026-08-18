@@ -21,3 +21,11 @@ document.addEventListener('change', (event) =>{
             }
             }
         });
+
+
+document.addEventListener('click', (event) =>{
+   if (event.target.tagName === 'H2'){
+    const listaDoDia = event.target.tagName === 'H2';
+   }
+
+})
