@@ -25,7 +25,19 @@ document.addEventListener('change', (event) =>{
 
 document.addEventListener('click', (event) =>{
    if (event.target.tagName === 'H2'){
-    const listaDoDia = event.target.tagName === 'H2';
+        const caixaDoDia = event.target.closest ('li.dia');
+        const listaDoDia = caixaDoDia.querySelector('ul');
+        listaDoDia.classList.toggle('escondida');
    }
 
 })
+
+const everyDay = document.querySelectorAll ('.li.dia');
+
+everyDay.forEach(element => {
+    const caixaDoDia = event.target.closest ('li.dia');
+    const listaDoDia = caixaDoDia.querySelector('ul');
+    
+    
+});
+
