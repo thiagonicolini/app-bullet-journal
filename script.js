@@ -25,19 +25,20 @@ document.addEventListener('change', (event) =>{
 
 document.addEventListener('click', (event) =>{
    if (event.target.tagName === 'H2'){
-        const caixaDoDia = event.target.closest ('li.dia');
+        const caixaDoDia = event.target.closest ('li');
         const listaDoDia = caixaDoDia.querySelector('ul');
         listaDoDia.classList.toggle('escondida');
    }
 
 })
 
-const everyDay = document.querySelectorAll ('.li.dia');
+const everyDay = document.querySelectorAll ('li');
+everyDay.forEach((element, index)=> {
+    if(index !== everyDay.length -1){
+    const listaDoDia = element.querySelector('ul');
+    listaDoDia.classList.add('escondida')
+    }
 
-everyDay.forEach(element => {
-    const caixaDoDia = event.target.closest ('li.dia');
-    const listaDoDia = caixaDoDia.querySelector('ul');
-    
-    
+
 });
 
