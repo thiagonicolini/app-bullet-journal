@@ -32,9 +32,9 @@ document.addEventListener('change', (event) =>{
 
 
 document.addEventListener('click', (event) =>{
-   if (event.target.tagName === 'H2'){
-        const caixaDoDia = event.target.closest ('li');
-        const listaDoDia = caixaDoDia.querySelector('ul');
+   if (event.target.closest('header')){
+        const caixaDoDia = event.target.closest('li.dia');
+        const listaDoDia = caixaDoDia.querySelector('.bloco-tarefas');
         listaDoDia.classList.toggle('escondida');
    }
 
@@ -49,5 +49,8 @@ everyDay.forEach((element, index)=> {
 
 
 });
+
+
+
 
 

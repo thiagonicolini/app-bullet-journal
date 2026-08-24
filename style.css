@@ -41,15 +41,22 @@ ul{
 
 li.dia{
     margin-top: -2em;
-    padding:  1.5em 0.325em 2em 1.5em;
     border-radius: 1.125em;
     overflow: auto;
     display: flow-root;
 }
 
+.bloco-tarefas{
+    padding: 0em 1.5em 1.5em 1.5em;
+}
+
 li.tarefa:last-child{
     padding-bottom: 1.5em;
 
+}
+
+li.tarefa:first-child{
+    margin-top: -2em;
 }
 
 li.dia:first-child{
@@ -79,7 +86,9 @@ li.dia:nth-child(5){
     background-color: transparent;
     display:flex;
     align-items: center;
+}
 
+.tarefa{
 }
 
 ::placeholder{
@@ -160,4 +169,8 @@ button:hover{
 
 .escondida{
     display: none;
+}
+
+header.bloco{
+    padding:  1.5em 0.325em 2em 1.5em;
 }
