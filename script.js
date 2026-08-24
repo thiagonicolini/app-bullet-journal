@@ -36,9 +36,20 @@ document.addEventListener('click', (event) =>{
         const caixaDoDia = event.target.closest('li.dia');
         const listaDoDia = caixaDoDia.querySelector('.bloco-tarefas');
         listaDoDia.classList.toggle('escondida');
-   }
+    }
+    if(!event.target.closest('li.dia')){
+        const everyDay = document.querySelectorAll ('li.dia');
+        everyDay.forEach((caixaDoDia, index) =>{
+            const listaDoDia = caixaDoDia.querySelector('.bloco-tarefas');
 
-})
+        if(index === everyDay.length -1){
+            listaDoDia.classList.remove('escondida')
+        } else{
+            listaDoDia.classList.add('escondida')
+        }
+    })
+    }
+   });
 
 const everyDay = document.querySelectorAll ('li.dia');
 everyDay.forEach((element, index)=> {

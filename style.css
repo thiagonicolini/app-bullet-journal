@@ -88,9 +88,6 @@ li.dia:nth-child(5){
     align-items: center;
 }
 
-.tarefa{
-}
-
 ::placeholder{
     font-family: 'Google-Sans-Flex';
     font-size: 1.25em;
