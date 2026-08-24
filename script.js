@@ -7,6 +7,14 @@ document.addEventListener('keydown', (event) =>{
                 listaDoDia.appendChild(novoItem);
                 novoItem.querySelector('.campo-tarefa').focus();
             }
+            // se a pessoa apagar todo o texto e depois apertar backspace ela apaga a caixinha do checkbok
+
+             if (event.key === 'Backspace' && event.target.value === ''){
+            const tarefaAtual = event.target.closest('li');
+            const tarefaAnterior = tarefaAtual.previousElementSibling;
+            tarefaAnterior.querySelector('.campo-tarefa').focus();
+            tarefaAtual.remove();
+ }
         })
 
 document.addEventListener('change', (event) =>{
@@ -32,7 +40,7 @@ document.addEventListener('click', (event) =>{
 
 })
 
-const everyDay = document.querySelectorAll ('li');
+const everyDay = document.querySelectorAll ('li.dia');
 everyDay.forEach((element, index)=> {
     if(index !== everyDay.length -1){
     const listaDoDia = element.querySelector('ul');
@@ -41,4 +49,5 @@ everyDay.forEach((element, index)=> {
 
 
 });
+
 

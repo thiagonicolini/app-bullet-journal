@@ -41,8 +41,15 @@ ul{
 
 li.dia{
     margin-top: -2em;
-    padding: 0.325em 1.5em;
+    padding:  1.5em 0.325em 2em 1.5em;
     border-radius: 1.125em;
+    overflow: auto;
+    display: flow-root;
+}
+
+li.tarefa:last-child{
+    padding-bottom: 1.5em;
+
 }
 
 li.dia:first-child{
