@@ -57,9 +57,29 @@ everyDay.forEach((element, index)=> {
     const listaDoDia = element.querySelector('ul');
     listaDoDia.classList.add('escondida')
     }
-
-
 });
+
+const addTarefa = document.querySelector ('button.add');
+addTarefa.addEventListener('click', (event) =>{
+    const coresRandom = ['#B88EFE',  '#FE814B','#24D0FE','#01916E', '#E3B23C' ];
+    const criarCard = document.createElement('li')
+    criarCard.classList.add('dia');
+    criarCard.innerHTML = `<header class="bloco">
+    <h2>Dia aqui</h2>
+    </header>
+    <ul class="bloco-tarefas">
+    <li class="tarefa">
+    <input type="checkbox">
+    <input type="text" class="campo-tarefa" placeholder="Digite sua tarefa aqui...">
+    </li></ul>`
+
+    // vamos aparecer na tela
+    // 1. selecione a ul pai
+    const listaPai = document.querySelector('main ul');
+    //2. coloque no final da lista
+    listaPai.appendChild(criarCard)
+});
+
 
 
 
