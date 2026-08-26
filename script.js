@@ -60,6 +60,8 @@ everyDay.forEach((element, index)=> {
 });
 
 const addTarefa = document.querySelector ('button.add');
+//crie uma variavel ultima cor
+let ultimaCor = '';
 addTarefa.addEventListener('click', (event) =>{
     const coresRandom = ['#B88EFE',  '#FE814B','#24D0FE','#01916E', '#E3B23C' ];
     const criarCard = document.createElement('li')
@@ -73,18 +75,23 @@ addTarefa.addEventListener('click', (event) =>{
     <input type="text" class="campo-tarefa" placeholder="Digite sua tarefa aqui...">
     </li></ul>`
     //arredonde as possibilidades 
-    const sorteador = Math.floor(Math.random()* coresRandom.length);
+    let sorteador = Math.floor(Math.random()* coresRandom.length);
     //pegando a cor do array
-    const corEscolhida = []
+    let corEscolhida = coresRandom[sorteador];
+    // se a cor escolhida for igual a ultima, sorteie denovo
+    while(corEscolhida === ultimaCor){
+    sorteador = Math.floor(Math.random()* coresRandom.length);
+    corEscolhida = coresRandom[sorteador];
+
+    }
+    criarCard.style.backgroundColor = corEscolhida;
     // vamos aparecer na tela
     // 1. selecione a ul pai
     const listaPai = document.querySelector('main ul');
     //2. coloque no final da lista
-    listaPai.appendChild(criarCard)
-});
-
-
-
-
+    listaPai.appendChild(criarCard);
+    //ultime cor recebe a cor escolhida
+    ultimaCor = corEscolhida
+})
 
 
