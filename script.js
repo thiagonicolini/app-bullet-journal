@@ -88,10 +88,12 @@ addTarefa.addEventListener('click', (event) =>{
     // vamos aparecer na tela
     // 1. selecione a ul pai
     const listaPai = document.querySelector('main ul');
+    const todasAsListas = document.querySelectorAll('.bloco-tarefas');
+    todasAsListas.forEach((lista)=>{
+    lista.classList.add('escondida');
+});
     //2. coloque no final da lista
     listaPai.appendChild(criarCard);
     //ultime cor recebe a cor escolhida
     ultimaCor = corEscolhida
-})
-
-
+});
