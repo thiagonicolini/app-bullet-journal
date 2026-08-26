@@ -72,7 +72,10 @@ addTarefa.addEventListener('click', (event) =>{
     <input type="checkbox">
     <input type="text" class="campo-tarefa" placeholder="Digite sua tarefa aqui...">
     </li></ul>`
-
+    //arredonde as possibilidades 
+    const sorteador = Math.floor(Math.random()* coresRandom.length);
+    //pegando a cor do array
+    const corEscolhida = []
     // vamos aparecer na tela
     // 1. selecione a ul pai
     const listaPai = document.querySelector('main ul');
