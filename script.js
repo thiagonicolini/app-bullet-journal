@@ -92,8 +92,6 @@ addTarefa.addEventListener('click', (event) =>{
     todasAsListas.forEach((lista)=>{
     lista.classList.add('escondida');
 });
-    //2. coloque no final da lista
-    listaPai.appendChild(criarCard);
-    //ultime cor recebe a cor escolhida
-    ultimaCor = corEscolhida
+    //criar o card la encima
+    listaPai.prepend(criarCard);
 });
