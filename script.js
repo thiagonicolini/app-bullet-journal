@@ -42,7 +42,7 @@ document.addEventListener('click', (event) =>{
         everyDay.forEach((caixaDoDia, index) =>{
             const listaDoDia = caixaDoDia.querySelector('.bloco-tarefas');
 
-        if(index === everyDay.length -1){
+        if(index === 0){
             listaDoDia.classList.remove('escondida')
         } else{
             listaDoDia.classList.add('escondida')
@@ -61,7 +61,7 @@ everyDay.forEach((element, index)=> {
 
 const addTarefa = document.querySelector ('button.add');
 //crie uma variavel ultima cor
-let ultimaCor = '';
+let ultimaCor = 'corEscolhida';
 addTarefa.addEventListener('click', (event) =>{
     // não duplicar evento
     event.stopPropagation();
@@ -69,7 +69,7 @@ addTarefa.addEventListener('click', (event) =>{
     const criarCard = document.createElement('li')
     criarCard.classList.add('dia');
     criarCard.innerHTML = `<header class="bloco">
-    <h2>Dia aqui</h2>
+    <input type="text" class="titulo-card">Dia aqui</h2>
     </header>
     <ul class="bloco-tarefas">
     <li class="tarefa">
