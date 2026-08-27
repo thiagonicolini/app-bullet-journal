@@ -63,6 +63,8 @@ const addTarefa = document.querySelector ('button.add');
 //crie uma variavel ultima cor
 let ultimaCor = '';
 addTarefa.addEventListener('click', (event) =>{
+    // não duplicar evento
+    //event.stopPropagation();//
     const coresRandom = ['#B88EFE',  '#FE814B','#24D0FE','#01916E', '#E3B23C' ];
     const criarCard = document.createElement('li')
     criarCard.classList.add('dia');

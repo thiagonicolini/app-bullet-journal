@@ -63,7 +63,7 @@ li.dia:first-child{
     margin-top: 0;
 }
 
-li.dia:nth-child(1){
+/*li.dia:nth-child(1){
     background-color: #B88EFE;
 
 }
@@ -80,7 +80,7 @@ li.dia:nth-child(4){
 li.dia:nth-child(5){
     background-color: #E3B23C;
 
-}
+}*/
 
 .tarefa{
     background-color: transparent;
