@@ -33,13 +33,15 @@ h2{
     color: rgba(0, 0, 0, 0.80);
     padding-bottom: -2em;
 }
-
+/*titulo de card (h2)*/
 .titulo-card{
     font-family: 'Google-Sans-Flex';
     font-weight: 400;
-    font-size: 1.7em;
+    font-size: 1.34em;
     color: rgba(0, 0, 0, 0.80);
-    padding-bottom: -2em;
+    padding-bottom: 1em;
+    background-color: transparent;
+    border: none;
 }
 
 ul{

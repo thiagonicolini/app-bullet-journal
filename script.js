@@ -61,7 +61,7 @@ everyDay.forEach((element, index)=> {
 
 const addTarefa = document.querySelector ('button.add');
 //crie uma variavel ultima cor
-let ultimaCor = 'corEscolhida';
+let ultimaCor = '';
 addTarefa.addEventListener('click', (event) =>{
     // não duplicar evento
     event.stopPropagation();
@@ -69,7 +69,7 @@ addTarefa.addEventListener('click', (event) =>{
     const criarCard = document.createElement('li')
     criarCard.classList.add('dia');
     criarCard.innerHTML = `<header class="bloco">
-    <input type="text" class="titulo-card">Dia aqui</h2>
+    <input type="text" class="titulo-card" placeholder="Que dia é hoje?..."></input>
     </header>
     <ul class="bloco-tarefas">
     <li class="tarefa">
@@ -84,8 +84,8 @@ addTarefa.addEventListener('click', (event) =>{
     while(corEscolhida === ultimaCor){
     sorteador = Math.floor(Math.random()* coresRandom.length);
     corEscolhida = coresRandom[sorteador];
+    ultimaCor = corEscolhida;
 
-    }
     criarCard.style.backgroundColor = corEscolhida;
     // vamos aparecer na tela
     // 1. selecione a ul pai
@@ -96,4 +96,4 @@ addTarefa.addEventListener('click', (event) =>{
 });
     //criar o card la encima
     listaPai.prepend(criarCard);
-});
+}})
