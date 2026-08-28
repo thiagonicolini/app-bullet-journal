@@ -1,3 +1,12 @@
+// vamos salvar tudo que o usuário fez
+function salvarDados(){
+    //selecione o documento principal
+        const listaPai = document.querySelector('main ul');
+    //guardemos no localStorage as minhas tarefas e preservaremos o visual oficial com innerHTML
+        localStorage.setItem('minhasTarefas', listaPai.innerHTML);
+}
+
+
 document.addEventListener('keydown', (event) =>{
             if (event.key === 'Enter' && event.target.classList.contains('campo-tarefa')){
                 const novoItem = document.createElement('li');
@@ -69,7 +78,7 @@ addTarefa.addEventListener('click', (event) =>{
     const criarCard = document.createElement('li')
     criarCard.classList.add('dia');
     criarCard.innerHTML = `<header class="bloco">
-    <input type="text" class="titulo-card" placeholder="Que dia é hoje?..."></input>
+    <input type="text" class="titulo-card" placeholder="Que dia é hoje?...">
     </header>
     <ul class="bloco-tarefas">
     <li class="tarefa">
@@ -84,8 +93,8 @@ addTarefa.addEventListener('click', (event) =>{
     while(corEscolhida === ultimaCor){
     sorteador = Math.floor(Math.random()* coresRandom.length);
     corEscolhida = coresRandom[sorteador];
+    }
     ultimaCor = corEscolhida;
-
     criarCard.style.backgroundColor = corEscolhida;
     // vamos aparecer na tela
     // 1. selecione a ul pai
@@ -96,4 +105,4 @@ addTarefa.addEventListener('click', (event) =>{
 });
     //criar o card la encima
     listaPai.prepend(criarCard);
-}})
+})

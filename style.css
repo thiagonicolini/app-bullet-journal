@@ -16,6 +16,10 @@ body{
 
 }
 
+main{
+    margin: 0.5em;
+}
+
 h1{
     font-family: 'Google-Sans-Flex';
     font-weight: 500;
