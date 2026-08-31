@@ -4,7 +4,21 @@ function salvarDados(){
         const listaPai = document.querySelector('main ul');
     //guardemos no localStorage as minhas tarefas e preservaremos o visual oficial com innerHTML
         localStorage.setItem('minhasTarefas', listaPai.innerHTML);
+
 }
+
+function carregarDados(){
+    //selecione o documento principal assim como fez na função anterior
+        const listaPai = document.querySelector('main ul');
+    //Pegue exatamente as minhas tarefas que estão guardadas no localStorage
+        const dadosSalvos = localStorage.getItem('minhasTarefas');
+    //vamos carregar o que foi salvo
+    if(dadosSalvos){
+        listaPai.innerHTML = dadosSalvos;
+    }
+}
+
+ carregarDados();
 
 
 document.addEventListener('keydown', (event) =>{
@@ -105,4 +119,5 @@ addTarefa.addEventListener('click', (event) =>{
 });
     //criar o card la encima
     listaPai.prepend(criarCard);
+    salvarDados();
 })
