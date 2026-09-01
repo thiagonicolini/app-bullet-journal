@@ -101,12 +101,21 @@ li.dia:nth-child(5){
     display:flex;
     align-items: center;
 }
+/*placerhold das tarefas*/
+.campo-tarefa::placeholder{
+    font-family: 'Google-Sans-Flex';
+    font-size: 1em;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.50);
+
+}
+
 
 ::placeholder{
     font-family: 'Google-Sans-Flex';
-    font-size: 1.25em;
+    font-size: 1em;
     font-weight: 400;
-    color: rgba(0, 0, 0, 0.60);
+    color: rgba(0, 0, 0, 0.70);
 
 }
 
@@ -114,7 +123,7 @@ li.dia:nth-child(5){
 .campo-tarefa{
     background-color: transparent;
     border: none;
-    color: rgba(0, 0, 0, 0.60);
+    color: rgba(0, 0, 0, 0.70);
     font-family: 'Google-Sans-Flex';
 }
 
@@ -148,6 +157,7 @@ input[type="checkbox"]:checked::before{
     -webkit-mask-size: contain;
     mask-composite: exclude;
     -webkit-mask-composite: xor;
+    border-radius: 4.125px;
 
 
 }

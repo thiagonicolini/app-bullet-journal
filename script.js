@@ -29,6 +29,7 @@ document.addEventListener('keydown', (event) =>{
                 novoItem.innerHTML = '<input type="checkbox" class="checkbox-tarefa"><input type="text" class="campo-tarefa" placeholder="Digite sua tarefa aqui...">';
                 listaDoDia.appendChild(novoItem);
                 novoItem.querySelector('.campo-tarefa').focus();
+                salvarDados();
             }
             // se a pessoa apagar todo o texto e depois apertar backspace ela apaga a caixinha do checkbok
 
@@ -37,6 +38,7 @@ document.addEventListener('keydown', (event) =>{
             const tarefaAnterior = tarefaAtual.previousElementSibling;
             tarefaAnterior.querySelector('.campo-tarefa').focus();
             tarefaAtual.remove();
+            salvarDados();
  }
         })
 
@@ -46,10 +48,13 @@ document.addEventListener('change', (event) =>{
             const campoDeTexto = event.target.nextElementSibling;
             if (event.target.checked){
                 campoDeTexto.style.textDecoration = 'line-through';
+                event.target.setAttribute('checked', 'checked');
             }
             else{
                 campoDeTexto.style.textDecoration = 'none';
+                event.target.removeAttribute('checked');
             }
+            salvarDados();
             }
         });
 
@@ -121,3 +126,16 @@ addTarefa.addEventListener('click', (event) =>{
     listaPai.prepend(criarCard);
     salvarDados();
 })
+
+// salvaremos os caracteres digitados agora
+document.addEventListener('input', (event) =>{
+    // vigie só o texto
+    if(event.target.type === 'text'){
+        // se for isso, pegue o que tenha na tela e coloque dentro do html 
+            event.target.setAttribute('value', event.target.value);
+        // salve agora
+        salvarDados();
+
+    }
+}
+)
