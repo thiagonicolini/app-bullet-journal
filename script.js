@@ -135,7 +135,6 @@ document.addEventListener('input', (event) =>{
             event.target.setAttribute('value', event.target.value);
         // salve agora
         salvarDados();
-
     }
 }
 )

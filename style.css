@@ -41,7 +41,7 @@ h2{
 .titulo-card{
     font-family: 'Google-Sans-Flex';
     font-weight: 400;
-    font-size: 1.34em;
+    font-size: 1.5em;
     color: rgba(0, 0, 0, 0.80);
     padding-bottom: 1em;
     background-color: transparent;
@@ -101,12 +101,12 @@ li.dia:nth-child(5){
     display:flex;
     align-items: center;
 }
-/*placerhold das tarefas*/
 .campo-tarefa::placeholder{
     font-family: 'Google-Sans-Flex';
     font-size: 1em;
-    font-weight: 400;
+    font-weight: 300 !important;
     color: rgba(0, 0, 0, 0.50);
+
 
 }
 
@@ -114,31 +114,30 @@ li.dia:nth-child(5){
 ::placeholder{
     font-family: 'Google-Sans-Flex';
     font-size: 1em;
-    font-weight: 400;
-    color: rgba(0, 0, 0, 0.70);
+    color: rgba(0, 0, 0, 0.40);
 
 }
-
 
 .campo-tarefa{
     background-color: transparent;
     border: none;
-    color: rgba(0, 0, 0, 0.70);
+    color: rgba(0, 0, 0, 0.60);
     font-family: 'Google-Sans-Flex';
+    font-size: 1.25em;
+    
 }
 
 input:focus{
     outline: none;
 }
 
-
+caixa
 input[type="checkbox"]{
     appearance: none;
     cursor: pointer;
-    width: 1.5em;
-    height: 1.5em;
+    width: 2em;
+    height: 2em;
     border: solid 2px rgba(0, 0, 0, 0.60);
-    border-radius: 0.5em;
 }
 
 input[type="checkbox"]:checked::before{
@@ -157,9 +156,7 @@ input[type="checkbox"]:checked::before{
     -webkit-mask-size: contain;
     mask-composite: exclude;
     -webkit-mask-composite: xor;
-    border-radius: 4.125px;
-
-
+    border-radius: 1em;
 }
 
 input[type="date"]{
