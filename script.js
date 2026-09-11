@@ -20,8 +20,42 @@ function carregarDados(){
 
  carregarDados();
 
+// 1. O VIGIA DE TECLADO: Nós precisamos ouvir tudo o que é digitado na tela.
+// Você já tem um vigia de 'keydown' no seu código, então vamos usar ele!
 
+    // 2. A CONDIÇÃO DUPLA (O 'if'): Precisamos fazer duas perguntas ao mesmo tempo:
+    // PERGUNTA A: A tecla que a pessoa acabou de apertar (event.key) foi o "Enter"?
+    // PERGUNTA B: O elemento que estava selecionado (event.target) tem a classe do título do dia?
+    
+    // if ( A tecla foi Enter E O alvo era o título do dia ) {
+        
+        // 3. A AÇÃO (O que acontece se a resposta for Sim):
+        // Se a pessoa deu Enter no título, nós precisamos:
+        // - Encontrar a lista (<ul>) que pertence a este cartão específico.
+        // - Criar um novo item de lista (<li>) igualzinho ao que você já cria nas tarefas normais.
+        // - Injetar o HTML do checkbox e do input de texto dentro desse <li>.
+        // - Adicionar esse <li> novo no final da <ul>.
+        // - Mudar o foco do teclado (focus) para a nova linha, para ela já sair digitando.
+        // - Salvar os dados para a "foto" registrar a nova tarefa.
+
+    // }
 document.addEventListener('keydown', (event) =>{
+    
+    // 2. A CONDIÇÃO DUPLA (O 'if'): Precisamos fazer duas perguntas ao mesmo tempo:
+    // PERGUNTA A: A tecla que a pessoa acabou de apertar (event.key) foi o "Enter"?
+    // PERGUNTA B: O elemento que estava selecionado (event.target) tem a classe do título do dia?
+            if (event.key === 'Enter' && event.target.classList.contains('titulo-card')){
+                // - Encontrar a lista (<ul>) que pertence a este cartão específico.
+                const listaDoDia = event.target.closest('.dia');  
+                // - Criar um novo item de lista (<li>) igualzinho ao que você já cria nas tarefas normais.
+                const novoItem = document.createElement('ul');
+                 // - Injetar o HTML do checkbox e do input de texto dentro desse <li>.
+                novoItem.innerHTML = '<input type="checkbox" class="checkbox-tarefa"><input type="text" class="campo-tarefa" placeholder="Digite sua tarefa aqui...">';
+                // - Adicionar esse <li> novo no final da <ul>.
+                listaDoDia.appendChild(novoItem);
+                // - Mudar o foco do teclado (focus) para a nova linha, para ela já sair digitando.
+                novoItem.querySelector('.campo-tarefa').focus();
+            }
             if (event.key === 'Enter' && event.target.classList.contains('campo-tarefa')){
                 const novoItem = document.createElement('li');
                 novoItem.classList.add('tarefa');
@@ -138,3 +172,4 @@ document.addEventListener('input', (event) =>{
     }
 }
 )
+
