@@ -8,12 +8,13 @@ function salvarDados(){
 }
 
 function carregarDados(){
-    //selecione o documento principal assim como fez na função anterior
+    //selecione a parte principal do documento assim como fez na função anterior
         const listaPai = document.querySelector('main ul');
-    //Pegue exatamente as minhas tarefas que estão guardadas no localStorage
+    //Pegue exatamente as 'minhasTarefas' que estão guardadas no localStorage
         const dadosSalvos = localStorage.getItem('minhasTarefas');
-    //vamos carregar o que foi salvo
+    // se eu tiver dadados salvos faça isso
     if(dadosSalvos){
+    //pegue  o conteúdo de dados salvos e coloque a formatação html,
         listaPai.innerHTML = dadosSalvos;
     }
 }
@@ -56,17 +57,24 @@ document.addEventListener('keydown', (event) =>{
                 // - Mudar o foco do teclado (focus) para a nova linha, para ela já sair digitando.
                 novoItem.querySelector('.campo-tarefa').focus();
             }
+
+            // se a pessoa clicar enter em campo-tarefa...
             if (event.key === 'Enter' && event.target.classList.contains('campo-tarefa')){
+                //adicionamos uma linha, a constr novoItem, recebe esse comando
                 const novoItem = document.createElement('li');
+                // nessa linha adicionados a tarefa
                 novoItem.classList.add('tarefa');
+                // selecionamos a ul lista do dia. [???]
                 const listaDoDia = event.target.closest('ul');
+                // adicionamos formatação ighual aos outros
                 novoItem.innerHTML = '<input type="checkbox" class="checkbox-tarefa"><input type="text" class="campo-tarefa" placeholder="Digite sua tarefa aqui...">';
+                // colocamos ao final da lista
                 listaDoDia.appendChild(novoItem);
+                // coloque sempre o foco no 'campo-tarefa'
                 novoItem.querySelector('.campo-tarefa').focus();
                 salvarDados();
             }
             // se a pessoa apagar todo o texto e depois apertar backspace ela apaga a caixinha do checkbok
-
              if (event.key === 'Backspace' && event.target.value === ''){
             const tarefaAtual = event.target.closest('li');
             const tarefaAnterior = tarefaAtual.previousElementSibling;
@@ -117,7 +125,7 @@ const everyDay = document.querySelectorAll ('li.dia');
 everyDay.forEach((element, index)=> {
     if(index !== everyDay.length -1){
     const listaDoDia = element.querySelector('ul');
-    listaDoDia.classList.add('escondida')
+    listaDoDia.classList.add('escondida');
     }
 });
 
