@@ -75,45 +75,67 @@ document.addEventListener('keydown', (event) =>{
                 salvarDados();
             }
             // se a pessoa apagar todo o texto e depois apertar backspace ela apaga a caixinha do checkbok
+            // o event.target.value === '' identifica se o campo estiver vazio
              if (event.key === 'Backspace' && event.target.value === ''){
+            /* Aqui estamos navegando pela arvore DOM */
+            //crie a variavel tarefaAtual, dentro dela você pega o elemento que recebeu a condição e encontra o li mais próximo
             const tarefaAtual = event.target.closest('li');
+            // crie a variavel tarefaAtual, pegue o "irmão" que vem imediatamente antes dele
             const tarefaAnterior = tarefaAtual.previousElementSibling;
+            //procura dentro da tarefaAnterior algum elemento que tenha '.campo=tarefa e deixa o cursor nela
             tarefaAnterior.querySelector('.campo-tarefa').focus();
+            //remove a tarefaAtual do html
             tarefaAtual.remove();
+            //salva os dados
             salvarDados();
  }
         })
 
 document.addEventListener('change', (event) =>{
         if (event.target.type === 'checkbox'){
-            
+            //  pegue o irmão que vem imediatamente antes
             const campoDeTexto = event.target.nextElementSibling;
+            // se a pessoa marcar o check...
             if (event.target.checked){
+                // a tarefa fica riscada
                 campoDeTexto.style.textDecoration = 'line-through';
+                // a partir de agora a configuração vai ficar marcada, dentro deste evento. 
                 event.target.setAttribute('checked', 'checked');
             }
+            // a pessoa desmarcar check, não ficar marcado check e removemos o setAttribute 'checked' que colocamos no if. 
             else{
                 campoDeTexto.style.textDecoration = 'none';
                 event.target.removeAttribute('checked');
             }
+            //salvamos
             salvarDados();
             }
         });
 
-
+// escute quando houver um click
 document.addEventListener('click', (event) =>{
+    // se o elemento que recebeu o clique estiver dentro do header, faça...
    if (event.target.closest('header')){
+    /* navegando pelo dom*/
+        // a caixaDoDia é a variavel que recebe o elemento mais proximo do elemento li.dia mais próximo do elemento clicado
         const caixaDoDia = event.target.closest('li.dia');
+        // lá dentro recebemos o bloco tarefa, 
         const listaDoDia = caixaDoDia.querySelector('.bloco-tarefas');
+        //ou seja, sempre que clicarem no header fecha ou abre dependendo do estado inicial, ele se esconde por toogle. 
         listaDoDia.classList.toggle('escondida');
     }
+    //se o elemento clicado não estiver dentro do 'li.dia' execute o código
     if(!event.target.closest('li.dia')){
+        // everyDay seleciona todos os 'li.dia' que tiver
         const everyDay = document.querySelectorAll ('li.dia');
+        // Para cada elemento do everyDay execute essa função
         everyDay.forEach((caixaDoDia, index) =>{
+            // encontre o bloco tarefas
             const listaDoDia = caixaDoDia.querySelector('.bloco-tarefas');
-
+        // se o index for identico a 0 removemos a classe escondida
         if(index === 0){
             listaDoDia.classList.remove('escondida')
+        // se não adicionamos a classe escondida
         } else{
             listaDoDia.classList.add('escondida')
         }
