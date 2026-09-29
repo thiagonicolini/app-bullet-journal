@@ -47,15 +47,18 @@ document.addEventListener('keydown', (event) =>{
     // PERGUNTA B: O elemento que estava selecionado (event.target) tem a classe do título do dia?
             if (event.key === 'Enter' && event.target.classList.contains('titulo-card')){
                 // - Encontrar a lista (<ul>) que pertence a este cartão específico.
-                const listaDoDia = event.target.closest('.dia');  
-                // - Criar um novo item de lista (<li>) igualzinho ao que você já cria nas tarefas normais.
-                const novoItem = document.createElement('ul');
+                const listaDoDia = event.target.closest('.dia').querySelector('.bloco-tarefas');  
+                // - Criar um novo item de lista (<li>) igualzinho as tarefas normais
+                const novoItem = document.createElement('li')
+                // adicionamos a classe tarefa para puxar a formatação do CSS
+                novoItem.classList.add('tarefa')
                  // - Injetar o HTML do checkbox e do input de texto dentro desse <li>.
                 novoItem.innerHTML = '<input type="checkbox" class="checkbox-tarefa"><input type="text" class="campo-tarefa" placeholder="Digite sua tarefa aqui...">';
                 // - Adicionar esse <li> novo no final da <ul>.
                 listaDoDia.appendChild(novoItem);
                 // - Mudar o foco do teclado (focus) para a nova linha, para ela já sair digitando.
                 novoItem.querySelector('.campo-tarefa').focus();
+                salvarDados();
             }
 
             // se a pessoa clicar enter em campo-tarefa...
@@ -168,7 +171,9 @@ addTarefa.addEventListener('click', (event) =>{
     criarCard.classList.add('dia');
     // estilizar o novo card 
     criarCard.innerHTML = `<header class="bloco">
+
     <input type="text" class="titulo-card" placeholder="Que dia é hoje?...">
+    <button class="fechar"> x </button>
     </header>
     <ul class="bloco-tarefas">
     <li class="tarefa">
@@ -209,4 +214,3 @@ document.addEventListener('input', (event) =>{
     }
 }
 )
-
