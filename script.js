@@ -143,9 +143,13 @@ document.addEventListener('click', (event) =>{
     }
    });
 
+// selecione todas as li.dia
 const everyDay = document.querySelectorAll ('li.dia');
+// para cada everyDay (elemento encontrado) recebemos o elemento atual e o index (posição desse elemento)
 everyDay.forEach((element, index)=> {
+    //se a posição atual não for a ultima do array
     if(index !== everyDay.length -1){
+    // deixe a ul dentro do elemento atual escondida
     const listaDoDia = element.querySelector('ul');
     listaDoDia.classList.add('escondida');
     }
@@ -158,8 +162,11 @@ addTarefa.addEventListener('click', (event) =>{
     // não duplicar evento
     event.stopPropagation();
     const coresRandom = ['#B88EFE',  '#FE814B','#24D0FE','#01916E', '#E3B23C' ];
+    // criarCard cria um elemento li
     const criarCard = document.createElement('li')
+    // no criar card a gente adiciona dia
     criarCard.classList.add('dia');
+    // estilizar o novo card 
     criarCard.innerHTML = `<header class="bloco">
     <input type="text" class="titulo-card" placeholder="Que dia é hoje?...">
     </header>
