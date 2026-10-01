@@ -158,6 +158,7 @@ everyDay.forEach((element, index)=> {
     }
 });
 
+
 const addTarefa = document.querySelector ('button.add');
 //crie uma variavel ultima cor
 let ultimaCor = '';
@@ -173,7 +174,7 @@ addTarefa.addEventListener('click', (event) =>{
     criarCard.innerHTML = `<header class="bloco">
 
     <input type="text" class="titulo-card" placeholder="Que dia é hoje?...">
-    <button class="fechar"> x </button>
+    <div class= "fechar"> x </div>
     </header>
     <ul class="bloco-tarefas">
     <li class="tarefa">

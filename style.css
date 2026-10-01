@@ -180,10 +180,18 @@ button{
     right: 20px;
     bottom: 20px;
 }
-.fechar{
+
+div.fechar{
         z-index: 9999 !important;
         color:#000;
+        position: relative;
+        right: 30px;
+        top: -15px;
+        font-family: 'Google-Sans-Flex';
+        color: rgba(0, 0, 0, 0.60);
+
 }
+
 
 button:hover{
     transform: scale(1.3);
@@ -194,6 +202,9 @@ button:hover{
     display: none;
 }
 
-header.bloco{
+.bloco{
     padding:  1.5em 0.325em 2em 1.5em;
+    display: flex;
+    align-items: center;
+    
 }
