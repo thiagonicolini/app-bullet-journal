@@ -117,6 +117,11 @@ document.addEventListener('change', (event) =>{
 
 // escute quando houver um click
 document.addEventListener('click', (event) =>{
+    if(event.target.classList.contains('fechar')){
+        event.target.closest('.dia').remove()
+        salvarDados()
+        return
+    }
     // se o elemento que recebeu o clique estiver dentro do header, faça...
    if (event.target.closest('header')){
     /* navegando pelo dom*/
@@ -172,7 +177,6 @@ addTarefa.addEventListener('click', (event) =>{
     criarCard.classList.add('dia');
     // estilizar o novo card 
     criarCard.innerHTML = `<header class="bloco">
-
     <input type="text" class="titulo-card" placeholder="Que dia é hoje?...">
     <div class= "fechar"> x </div>
     </header>
@@ -215,3 +219,18 @@ document.addEventListener('input', (event) =>{
     }
 }
 )
+
+
+/*Botão de fechar o card
+const fecharCard = document.querySelector('.fechar');
+fecharCard.addEventListener('click', (event) =>{
+    const elementoClicado = event.target;
+        //se a pessoa clicar no x, ele vai remover o card
+    if(event.target === fecharCard){
+        elementoClicado.remove()
+
+    }
+    
+
+})
+*/

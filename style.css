@@ -208,3 +208,7 @@ button:hover{
     align-items: center;
     
 }
+
+.fechar{
+    cursor: pointer;
+}
