@@ -115,52 +115,38 @@ document.addEventListener('change', (event) =>{
             }
         });
 
-// escute quando houver um click
-document.addEventListener('click', (event) =>{
-    if(event.target.classList.contains('fechar')){
-        event.target.closest('.dia').remove()
-        salvarDados()
-        return
-    }
-    // se o elemento que recebeu o clique estiver dentro do header, faça...
-   if (event.target.closest('header')){
-    /* navegando pelo dom*/
-        // a caixaDoDia é a variavel que recebe o elemento mais proximo do elemento li.dia mais próximo do elemento clicado
-        const caixaDoDia = event.target.closest('li.dia');
-        // lá dentro recebemos o bloco tarefa, 
-        const listaDoDia = caixaDoDia.querySelector('.bloco-tarefas');
-        //ou seja, sempre que clicarem no header fecha ou abre dependendo do estado inicial, ele se esconde por toogle. 
-        listaDoDia.classList.toggle('escondida');
-    }
-    //se o elemento clicado não estiver dentro do 'li.dia' execute o código
-    if(!event.target.closest('li.dia')){
-        // everyDay seleciona todos os 'li.dia' que tiver
-        const everyDay = document.querySelectorAll ('li.dia');
-        // Para cada elemento do everyDay execute essa função
-        everyDay.forEach((caixaDoDia, index) =>{
-            // encontre o bloco tarefas
-            const listaDoDia = caixaDoDia.querySelector('.bloco-tarefas');
-        // se o index for identico a 0 removemos a classe escondida
-        if(index === 0){
-            listaDoDia.classList.remove('escondida')
-        // se não adicionamos a classe escondida
-        } else{
-            listaDoDia.classList.add('escondida')
-        }
-    })
-    }
-   });
+// 1. O VIGIA GERAL: Comece criando o escutador de 'click' no 'document'.
+document.addEventListener('click', (event) => {
 
-// selecione todas as li.dia
-const everyDay = document.querySelectorAll ('li.dia');
-// para cada everyDay (elemento encontrado) recebemos o elemento atual e o index (posição desse elemento)
-everyDay.forEach((element, index)=> {
-    //se a posição atual não for a ultima do array
-    if(index !== everyDay.length -1){
-    // deixe a ul dentro do elemento atual escondida
-    const listaDoDia = element.querySelector('ul');
-    listaDoDia.classList.add('escondida');
-    }
+    // --- REGRA DO BOTÃO FECHAR (Essa você já domina) ---
+    // Se o elemento clicado (event.target) tem a classe 'fechar':
+        // Mande o elevador subir até '.dia', remova ele.
+        // Salve os dados.
+        // Coloque o 'return' para abortar o resto do código.
+
+    // --- A MIRA PRINCIPAL ---
+    // Crie uma variável (ex: cartaoClicado). 
+    // Nela, mande o elevador (a partir do event.target) tentar achar o 'li.dia' mais próximo.
+
+    // --- A BIFURCAÇÃO (O CORAÇÃO DO CÓDIGO) ---
+    // Crie um 'if' perguntando se 'cartaoClicado' existe (ou seja, se a pessoa acertou o clique em um cartão).
+
+    // SE SIM (Clicou em qualquer lugar de um cartão):
+        // Crie uma variável para achar a 'ul' ('.bloco-tarefas') de DENTRO do 'cartaoClicado'.
+        // Crie outra variável para achar o primeiro 'li.dia' do DOCUMENTO INTEIRO.
+        
+        // Compare: O 'cartaoClicado' é estritamente igual ao primeiro cartão?
+            // Se SIM (Objetivo 1): Remova a classe 'escondida' da lista desse cartão.
+            // Se NÃO (Objetivo 3): Como você quer que o cartão ABRA se clicar em qualquer parte dele, apenas remova a classe 'escondida' da lista desse cartão também! 
+            // (Dica: Pense bem... se a ação é a mesma para os dois casos, você precisa mesmo de um if/else aqui dentro?)
+
+    // SE NÃO (O 'else' principal - Clicou fora dos cartões, no fundo da tela):
+        // Crie uma variável selecionando TODOS os cartões 'li.dia' da tela.
+        // Faça um laço de repetição para passar por cada cartão e seu número na fila (index).
+        // Dentro do laço, ache a 'ul' ('.bloco-tarefas') do cartão atual.
+        // Crie um 'if': Se o index for igual a 0, remova a classe 'escondida'.
+        // Se não for (else): adicione a classe 'escondida' (Objetivo 2).
+
 });
 
 
@@ -232,5 +218,4 @@ fecharCard.addEventListener('click', (event) =>{
     }
     
 
-})
-*/
+})*/
