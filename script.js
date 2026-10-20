@@ -116,30 +116,45 @@ document.addEventListener('change', (event) =>{
         });
 
 // 1. O VIGIA GERAL: Comece criando o escutador de 'click' no 'document'.
-document.addEventListener('click', (event) => {
-
+    document.addEventListener('click', (event) =>{
     // --- REGRA DO BOTÃO FECHAR (Essa você já domina) ---
-    // Se o elemento clicado (event.target) tem a classe 'fechar':
-        // Mande o elevador subir até '.dia', remova ele.
-        // Salve os dados.
-        // Coloque o 'return' para abortar o resto do código.
+    // --- REGRA DO BOTÃO FECHAR (Essa você já domina) ---    if(event.target.classList.contains('fechar')){
 
+    if(event.target.classList.contains('fechar')){
+        event.target.closest('.dia').remove()
+        salvarDados()
+        return
+    }
+    
     // --- A MIRA PRINCIPAL ---
     // Crie uma variável (ex: cartaoClicado). 
     // Nela, mande o elevador (a partir do event.target) tentar achar o 'li.dia' mais próximo.
+    const cartaoClicado = event.target.closest('li.dia')
 
     // --- A BIFURCAÇÃO (O CORAÇÃO DO CÓDIGO) ---
     // Crie um 'if' perguntando se 'cartaoClicado' existe (ou seja, se a pessoa acertou o clique em um cartão).
-
     // SE SIM (Clicou em qualquer lugar de um cartão):
+    if(cartaoClicado){
         // Crie uma variável para achar a 'ul' ('.bloco-tarefas') de DENTRO do 'cartaoClicado'.
+        const blocoTarefas = cartaoClicado.querySelector('.bloco-tarefas')
         // Crie outra variável para achar o primeiro 'li.dia' do DOCUMENTO INTEIRO.
-        
-        // Compare: O 'cartaoClicado' é estritamente igual ao primeiro cartão?
+        const primeiroCartao = document.querySelector('li.dia');
+         // Compare: O 'cartaoClicado' é estritamente igual ao primeiro cartão?
             // Se SIM (Objetivo 1): Remova a classe 'escondida' da lista desse cartão.
+        if( primeiroCartao === cartaoClicado){
+            blocoTarefas.classList.remove('escondida');
+        }
+        
+}});
+        
             // Se NÃO (Objetivo 3): Como você quer que o cartão ABRA se clicar em qualquer parte dele, apenas remova a classe 'escondida' da lista desse cartão também! 
             // (Dica: Pense bem... se a ação é a mesma para os dois casos, você precisa mesmo de um if/else aqui dentro?)
+        
 
+
+    
+        
+       
     // SE NÃO (O 'else' principal - Clicou fora dos cartões, no fundo da tela):
         // Crie uma variável selecionando TODOS os cartões 'li.dia' da tela.
         // Faça um laço de repetição para passar por cada cartão e seu número na fila (index).
@@ -147,7 +162,7 @@ document.addEventListener('click', (event) => {
         // Crie um 'if': Se o index for igual a 0, remova a classe 'escondida'.
         // Se não for (else): adicione a classe 'escondida' (Objetivo 2).
 
-});
+
 
 
 const addTarefa = document.querySelector ('button.add');
@@ -203,19 +218,5 @@ document.addEventListener('input', (event) =>{
         // salve agora
         salvarDados();
     }
-}
-)
 
-
-/*Botão de fechar o card
-const fecharCard = document.querySelector('.fechar');
-fecharCard.addEventListener('click', (event) =>{
-    const elementoClicado = event.target;
-        //se a pessoa clicar no x, ele vai remover o card
-    if(event.target === fecharCard){
-        elementoClicado.remove()
-
-    }
-    
-
-})*/
+})
